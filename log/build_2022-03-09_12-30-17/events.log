@@ -1,0 +1,11 @@
+[0.000000] (-) TimerEvent: {}
+[0.001943] (navi_core) JobQueued: {'identifier': 'navi_core', 'dependencies': OrderedDict()}
+[0.002671] (navi_core) JobStarted: {'identifier': 'navi_core'}
+[0.099066] (-) TimerEvent: {}
+[0.200028] (-) TimerEvent: {}
+[0.300778] (-) TimerEvent: {}
+[0.401442] (-) TimerEvent: {}
+[0.502166] (-) TimerEvent: {}
+[0.602875] (-) TimerEvent: {}
+[0.629132] (navi_core) JobEnded: {'identifier': 'navi_core', 'rc': 0}
+[0.633001] (-) EventReactorShutdown: {}

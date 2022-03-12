@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+    <!-- base link -->
+    
+    <link name = "base_link">
+    </link>
+
+    <!-- chassis -->
+
+    <joint name = "chassis_joint" type = "fixed">
+        <parent link = "base_link"/>
+        <child link = "chassis_link"/>
+        <origin xyz="0.107 0 0.018"/> 
+    </joint>
+    
+    <link name = "chassis_link">
+        <visual>
+            <geometry>
+                <mesh filename="file:///home/leon3428/Documents/navi/chassis.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- left wheel -->
+    <joint name = "left_wheel_joint" type = "continuous">
+        <parent link = "base_link"/>
+        <child link = "left_wheel_link"/>
+        <origin xyz = "0 0.1075 0"/>
+        <axis xyz = "0 -1 0"/>
+    </joint>
+
+    <link name = "left_wheel_link">
+        <visual>
+            <geometry>
+                <mesh filename="file:///home/leon3428/Documents/navi/wheel.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- right wheel -->
+    <joint name = "right_wheel_joint" type = "continuous">
+        <parent link = "base_link"/>
+        <child link = "right_wheel_link"/>
+        <origin xyz = "0 -0.1075 0"/>
+        <axis xyz = "0 1 0"/>
+    </joint>
+
+    <link name = "right_wheel_link">
+        <visual>
+            <geometry>
+                <mesh filename="file:///home/leon3428/Documents/navi/wheel.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- left omni wheel -->
+    <joint name = "left_omni_wheel_joint" type = "fixed">
+        <parent link = "base_link"/>
+        <child link = "left_omni_wheel_link"/>
+        <origin xyz = "0.236 0.1075 0"/>
+    </joint>
+
+    <link name = "left_omni_wheel_link">
+        <visual>
+            <geometry>
+                <mesh filename="file:///home/leon3428/Documents/navi/wheel.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+
+     <!-- right omni wheel -->
+    <joint name = "right_omni_wheel_joint" type = "fixed">
+        <parent link = "base_link"/>
+        <child link = "right_omni_wheel_link"/>
+        <origin xyz = "0.236 -0.1075 0"/>
+    </joint>
+
+    <link name = "right_omni_wheel_link">
+        <visual>
+            <geometry>
+                <mesh filename="file:///home/leon3428/Documents/navi/wheel.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+
+</robot>
