@@ -15,6 +15,7 @@ setup(
         (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*.launch.py'))),
         (os.path.join('share', package_name, 'description'), glob('description/*.xacro')),
         (os.path.join('share', package_name, 'description/meshes'), glob('description/meshes/*')),
+        (os.path.join('share', package_name, 'web'), glob('web/*')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -25,6 +26,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'odometry_publisher = navi_core.odometry_publisher:main',
+            'control_center = navi_core.control_center:main',
+            'system_monitor = navi_core.system_monitor:main',
         ],
     },
 )

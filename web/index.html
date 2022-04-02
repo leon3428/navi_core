@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Navi Control Center</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename = 'script.js') }}"></script>
+    
+</head>
+<body>
+    <ul class="navbar">
+        <li id="last-left">Navi Control Center</li>
+        <li>
+            <i class="fa fa-circle" aria-hidden="true" id = "system_state"></i>
+        </li>
+        <li id="break">System State</li>
+        <li id="battery_percentage">100%</li>
+        <li>
+            <i class="fa fa-battery-empty" id="battery_icon" aria-hidden="true"></i>
+        </li>
+    </ul>
+
+    <div class="modules-container">
+        <div class="module">
+            <table class="joystick">
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="button" id="arrow-up">
+                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="button" id="arrow-left">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="button">
+                            <input type="range" min="0" max="10" value="50" class="slider" id="velocity-slider">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="button" id="arrow-right">
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="button" id="arrow-down">
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+</body>
+</html>

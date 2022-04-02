@@ -6,6 +6,9 @@ from launch.event_handlers import OnProcessStart
 from launch.substitutions import LaunchConfiguration
 from launch.actions import DeclareLaunchArgument
 
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+
 import os
 from ament_index_python.packages import get_package_share_directory
 
@@ -23,7 +26,7 @@ def generate_launch_description():
         package='robot_state_publisher',
         executable='robot_state_publisher',
         output='screen',
-        parameters=[{'robot_description': robot_description_config.toxml(), 'use_sim_time': use_sim_time}]
+        parameters=[{'robot_description': robot_description_config.toxml(), 'use_sim_time': False}]
     )
 
     micro_ros_agent = Node(
@@ -46,21 +49,39 @@ def generate_launch_description():
         shell=True
     )
 
+    node_control_center = Node(
+        package='navi_core',
+        executable='control_center',
+        output='screen'
+    )
+
+    node_system_monitor = Node(
+        package='navi_core',
+        executable='system_monitor',
+        output='screen',
+        parameters=[
+                {'critical_nodes': ['firmware' , 'robot_state_publisher'],
+                 'application_nodes': ['control_center']
+                }
+            ]
+    )
+
+    rplidar = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            get_package_share_directory('rplidar_ros2'), 'launch'), '/rplidar_launch.py'])
+      )
+
     return LaunchDescription([
         DeclareLaunchArgument(
             'use_sim_time',
             default_value='false',
             description='Use sim time if true'),
 
-        node_robot_state_publisher,
         micro_ros_agent,
+        start_firmware,
+        node_control_center,
+        node_system_monitor,
+        node_robot_state_publisher,
+        rplidar
         
-        RegisterEventHandler(
-            OnProcessStart(
-                target_action=micro_ros_agent,
-                on_start=[
-                    start_firmware
-                ]
-            )
-        )
     ])

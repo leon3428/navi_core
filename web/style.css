@@ -1,0 +1,120 @@
+body {
+    background-color: rgb(245, 245, 245);
+    margin: 0px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    background-color: rgb(24, 24, 24);
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar > li {
+    margin: 5px;
+    font-size: calc(10px + 0.8vw);
+    list-style-type: none;
+    color: rgb(240, 235, 230);
+}
+
+#last-left {
+    padding-left: 0.5vw;
+    flex: 0.98;  
+}
+
+#break {
+    margin-right:20px;
+}
+
+.modules-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.module{
+    border-radius: 20px;
+    border-style: solid;
+    border-color: rgb(24, 24, 24);
+    border-width: 3px;
+    background-color:white;
+    color: black;
+    width: calc(20rem + 7vw);
+    height: calc(20rem + 7vw);
+    margin: 0.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .module {
+        width: 95vw;
+        height: 95vw;
+    }
+
+    .modules-container {
+        justify-content: center;
+    }
+}
+
+.joystick {
+    width: 90%;
+    height: 90%;
+}
+
+.joystick td {
+    width: 33.33%;
+    height: 33.33%;
+}
+
+.button {
+    background-color: rgb(24, 24, 24);
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.button > i {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: white
+}
+
+.button:hover {
+    background-color: rgb(46, 46, 46);
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 10px;
+    position: relative;
+    top: 40%;
+    left: 11%;
+    transform: rotate(-90deg);
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 30px;
+    background: #ff8800;
+    cursor: pointer;
+}
+  
+.slider::-moz-range-thumb {
+    width: 10px;
+    height: 30px;
+    background: #04AA6D;
+    cursor: pointer;
+}
